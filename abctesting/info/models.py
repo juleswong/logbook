@@ -23,11 +23,13 @@ class Customer(models.Model):
 		return reverse('customerinfo', kwargs={'pk': self.pk})
 
 class SampleLog(models.Model):
+	ASAP = 'ASAP'
 	THREEDAY ='3 Day'
 	TWODAY = '2 Day'
 	ONEDAY = '1 Day'
 	SAMEDAY ='Same Day'
 	RUSH_CHOICES = (
+		(ASAP, 'ASAP'),
 		(THREEDAY, '3 day rush'),
 		(TWODAY, '2 day rush'),
 		(ONEDAY, '1 day rush'),
