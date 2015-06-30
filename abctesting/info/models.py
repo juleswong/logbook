@@ -23,10 +23,10 @@ class Customer(models.Model):
 		return reverse('customerinfo', kwargs={'pk': self.pk})
 
 class SampleLog(models.Model):
-	THREEDAY ='3D'
-	TWODAY = '2D'
-	ONEDAY = '1D'
-	SAMEDAY ='SD'
+	THREEDAY ='3 Day'
+	TWODAY = '2 Day'
+	ONEDAY = '1 Day'
+	SAMEDAY ='Same Day'
 	RUSH_CHOICES = (
 		(THREEDAY, '3 day rush'),
 		(TWODAY, '2 day rush'),
@@ -36,7 +36,7 @@ class SampleLog(models.Model):
 	customer = models.ForeignKey(Customer)
 	product_order = models.CharField(max_length=500,blank=True)
 	date_received = models.DateField()
-	rush = models.CharField(max_length=2,
+	rush = models.CharField(max_length=10,
 							choices=RUSH_CHOICES,
 							blank=True)
 	lab_number = models.IntegerField(unique=True)

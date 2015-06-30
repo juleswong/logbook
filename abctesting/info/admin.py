@@ -18,7 +18,7 @@ class SampleLogAdmin(admin.ModelAdmin):
 	
 	fieldsets = [
         (None,               {'fields': ['customer']}),
-        ('Chain of custody', {'fields': ['product_order','date_received','lab_number','invoice_number','product_name','lot_number','item_number','test_request','notes']}),
+        ('Chain of custody', {'fields': ['product_order', 'rush','date_received','lab_number','invoice_number','product_name','lot_number','item_number','test_request','notes']}),
     ]
 	list_display = ('lab_number','customer')
 
