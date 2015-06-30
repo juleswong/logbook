@@ -75,6 +75,13 @@
 									<span ng-show="sortType == 'test_request' && sortReverse" class="fa fa-caret-down"></span>
 								</a>
 							</td>
+							<td>
+								<a href="#" ng-click="sortType = 'edit'; sortReverse = !sortReverse">
+									Edit
+									<span ng-show="sortType == 'edit' && !sortReverse" class="fa fa-caret-up"></span>
+									<span ng-show="sortType == 'edit' && sortReverse" class="fa fa-caret-down"></span>
+								</a>
+							</td>
 					</thead>
 					<tbody>
 						<tr ng-repeat ="log in logBook | orderBy:sortType:sortReverse | filter:searchLog">
@@ -85,6 +92,7 @@
 							<td>{{ log.date_received | date }}</td>
  							<td>{{ log.lot_number }}</td>
  							<td>{{ log.test_request }}</td>
+ 							<td><a class="btn btn-default" href="logform/{{log.pk}}"><span class="glyphicon glyphicon-pencil"></a></td>
 						</tr>
 					</tbody>
 				{% endverbatim %}
