@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>{{ samplelog.lab_number }} - {{ samplelog.customer }}</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static "css/info.css" %}">
+	</head>
+{% block content %}
+	<div class="col-md-4 col-md-offset-4">
+		<h1><a href="/">ABC Testing</a></h1>
+		<br></br>
+		<p><h2>Lab#: {{ samplelog.lab_number}}</h2></p>
+		<p>Customer: {{ samplelog.customer }}</p>
+		<p>PO#: {{ samplelog.product_order }}</p>
+		<p>Date Received: {{ samplelog.date_received}}</p>
+		<p><h3>Rush: {{ samplelog.rush }}</h3></p>
+		
+		<table class="table">
+			<thead>
+				<th>Product Name</th>
+				<th>Lot Number</th>
+				<th>Item Number</th>
+				<th>Test Request</th>
+				<th>Notes</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{ samplelog.product_name }}</td>
+					<td>{{ samplelog.lot_number }}</td>
+					<td>{{ samplelog.item_number }}</td>
+					<td>{{ samplelog.test_request }}</td>
+					<td>{{ samplelog.notes }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul>
+			<a class="btn btn-default" href="{% url 'logform' samplelog.pk %}">
+				<span class="glyphicon glyphicon-pencil"></span>
+			</a>
+			<a href="/info">return</a>
+		</ul>
+	</div>
+{% endblock %}
+</html>

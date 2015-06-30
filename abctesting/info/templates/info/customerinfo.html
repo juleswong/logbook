@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>{{ customer.company_name }}</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static "css/info.css" %}">
+	</head>
+	<div>
+	</div>
+{% block content %}
+	<div class="col-md-4 col-md-offset-4">
+		<h1><a href="/">ABC Testing</a></h1>
+		<address>
+			<strong>{{ customer.company_name }}</strong><br>
+			{{ customer.address }}<br>
+			{{ customer.city }}, {{ customer.state}} {{ customer.zipcode }}<br>
+			<abbr title="Phone">P:</abbr>{{ customer.telephone }}<br>
+			<abbr title="Fax">F:</abbr>{{ customer.fax_number }}<br>
+			<abbr title="Email">E:</abbr><a href="mailto:#">{{ customer.email }}</a><br>
+			<abbr title="Contact Customer">CC:</abbr>{{customer.contact_customer}}<br>
+		</address>
+		<dl>
+			<dt>Notes</dt>
+			<dd>{{ customer.comments }}</dd>
+		</dl>
+		<a class="btn btn-default" href="{% url 'customerform' %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<ul>
+		<a href="/info/customers">return</a>
+		</ul>
+	</div>
+{% endblock %}
+</html>
